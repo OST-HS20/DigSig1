@@ -19,4 +19,13 @@ Wenn ein Interval von Frequenzen eine gemeinsame Verzögerung hat, wird diese al
 d_g(\omega) = - \frac{d}{d\omega}\arg H(\omega)
 \]
 
-Wenn alle Frequenzen die gleiche Verzögerung haben ($d(\omega) = konst$) dann spricht man von einem \textbf{Linear Phase Filter}. Bei diesem ist die symetrische UTF nicht bei 0 sondern mit $D = d(\omega)$ Samples verzögert.
+Wenn alle Frequenzen die gleiche Verzögerung haben ($d(\omega) = konst$) dann spricht man von einem \textbf{Linear Phase Filter}. Bei diesem das Zentrum der symetrische UTF nicht bei 0 sondern mit $D = d(\omega)$ Samples verzögert.
+\begin{center}
+	\includegraphics[width=0.5\columnwidth]{Images/verzögerung}
+\end{center}
+
+\textbf{Eigenschaften} von Linear Phasen Filter sind:
+\begin{itemize}
+	\item symmetrische Impulsantworten (rein reelö) haben keine Phase (Nullphasig) und damit keinen Delay
+	\item durch das einführen einer Zeitverzögerung (um das Filter kaus zu machen) wird aus dem Nullphasigen Filter ein linearphasiges Filter.
+\end{itemize}
