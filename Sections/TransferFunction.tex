@@ -1,0 +1,22 @@
+\section{Übertragungsfunktion}
+\begin{center}
+	\includegraphics[width=\columnwidth]{Images/übertraungsfunktion}
+\end{center}
+
+\textbf{Hinweis}:
+\[
+h[n] = [1, 2, 1] \transform H(z) = 1 + 2z^{-1} + z^{-2}
+\]
+
+\subsection{Delay}
+Die Funktion $d(\omega)$ zeigt wieviele Verzögerung in Samples jede Frequenz hat. Ein Negatives vorzeichen deutet auf die positive Zeitverzögerung hin.
+\[
+d(\omega) = -\frac{\arg H(\omega)}{\omega} \xRightarrow{} \arg H(\omega) = -\omega d(\omega)
+\]
+
+Wenn ein Interval von Frequenzen eine gemeinsame Verzögerung hat, wird diese als \textbf{Group Delay} bezeichnet und kann durch Ableiten von $d(\omega)$ bestimmt werden. Sobald diese Konstant ist, ist das Intervall gefunden.
+\[
+d_g(\omega) = - \frac{d}{d\omega}\arg H(\omega)
+\]
+
+Wenn alle Frequenzen die gleiche Verzögerung haben ($d(\omega) = konst$) dann spricht man von einem \textbf{Linear Phase Filter}. Bei diesem ist die symetrische UTF nicht bei 0 sondern mit $D = d(\omega)$ Samples verzögert.

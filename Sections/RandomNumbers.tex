@@ -1,0 +1,90 @@
+\section{Random Numbers}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l}
+		Alle Versuchsausgänge & $\Omega$ \\
+		A und B treten ein & $A \cap B$ \\
+		A oder B treten ein & $A \cup B$ \\
+		nicht A & $\overline{A} = \Omega \backslash A$ \\
+		unmögliches Ereignis & $\emptyset$ \\
+		A hat B zurfolge & $A \subset B$ \\
+	\end{tabular}
+\end{table}
+
+\subsection{Axiome}
+\begin{align*}
+	P(\emptyset) &= 0 \\
+	P(\overline{A}) &= P(\Omega \backslash A) = 1 - P(A) \\
+	P(A \backslash B) &= P(A) - P(A \cap B) \\
+	P(A \cup B) &= P(A)  + P(B) - P(A \cap B) \\
+	P(\overline{A} | \overline{B}) &= 1-P(A|\overline{B}) \\
+	P(\overline{A} | B) &= 1-P(A|B) \\
+\end{align*}
+
+\subsection{Bedingte Wahrscheinlichkeit}
+Die bedingte Wahrscheinlichkeit eines Ereignisses A unter der Bedingung B. \textit{B ist die neue Gesammtmenge, in welcher A vorkommen kann}:
+\[
+P(A|B) = \frac{P(A \cap B)}{P(B)} \xRightarrow[\text{S.v. Bayes}]{} P(A|B) = P(B|A)\cdot\frac{P(A)}{P(B)}
+\]
+
+\noindent\textbf{Beispiel:} Die Wahrscheinlichkeit, dass ein Raucher (R) Lungenkrebs (L) einwickelt ist $15\%$, Bei Nichtraucher $1\% \rightarrow P(L|R) = 0.15$ und $P(L|\overline{R}) = 0.01$. Wie viel Lungenkrebskrange sind auch Raucher ist unbekannt $P(R|L) = ?$.
+
+\noindent Wenn A und B unabhängig sind gilt:
+\[ P(A \cap B) = P(A) \cdot P(B)\]
+
+
+\subsection{Erwartungswert}
+Der Erwartungswert $\mu$ einer Zufallsvariable beschreibt die Zahl, die die diese im Mittel annimmt.
+\[
+\mu = \overline{X} = E(X)= \sum\limits_{i=0}^{n}x_i\cdot \underbrace{P(X=x_i)}_\text{Wr.keit} = \int_{-\infty}^{\infty}x\cdot \underbrace{\varphi(x)}_{\text{Wr.dichte}}dx
+\]
+
+\textbf{Rechenregeln} mit Zufallsvariablen $X, Y$:
+\begin{itemize}[nosep]
+	\item $E(X + Y) = E(X) + E(Y)$
+	\item $E(\lambda X) = \lambda E(X)$ 
+	\item $E(X\cdot Y) = E(X) \cdot E(Y) \qquad$  (Nur falls Unabhängig)
+\end{itemize}
+
+\subsection{Varianz}
+Die Varianz $\var(X)$ beschreibt die mittlere quadratische Abweichung vom Erwartungswert. Damit lässt sich die Standardabweichung $\sigma$ berechnen.
+\begin{align*}
+	\var(X) &= E(X^2) - E(X)^2 \\
+	&=\sum\limits_{i=0}^{n}(k_i - E(X))^2 \cdot \underbrace{P(X=x_i)}_\text{Wr.keit} \\
+	\sigma &= \sqrt{\var(X)}	
+\end{align*}
+
+\noindent\textbf{Rechenregeln}:
+\begin{itemize}[nosep]
+	\item $\var(\lambda X) = \lambda^2\var(X)$
+	\item $\var(X + Y) = \var(X) + \var(Y) \qquad$ (Nur falls Unabhängig)
+	\item $\var(X\cdot Y) = \var(X)\var(Y) + \var(Y)E(X)^2 + \var(X)E(Y)^2$
+\end{itemize}
+
+\subsection{Kovarianz}
+Eine positive Kovarianz gibt an, dass sich beide Variablen in dieselbe Richtung bewegung und dual. Werte nahe oder gleich Null, deuten darauf hin, dass die Zufallsvariablen unabhängig sind.
+
+Die Kovarianz zwischen Zufallszahl $x,y$ mit Mittelwerten $\overline{x}, \overline{y}$ wird wie folgt berechnet. Siehe auch Kapitel \ref{covarianz_eg} als Beispiel:
+
+\[
+\cov(x,y) = \frac{\sum\limits_{i=1}^{N}(x_i - \overline{x})(y_i - \overline{y})}{N} = E(xy) - E(x)\cdot E(y)
+\]
+
+\subsection{Autokorrelation}
+Die Autokorrelationsfunktion $R_{xx}(k)$ sagt aus, wie ähnlich ein Signal zu sich selbst ist. Die Autokorrelation zum Zeitpunkt 0 ($R_{xx}(0) = \sigma^2_x = E[x(n)^2]$) entspricht der mittleren Leistung des Signals! Desweiteren ist ein zufälliges signal stationär, was die Autokorelationsfunktion symmetrisch macht: $R_{xx}(k) = R_{xx}(-k)$
+
+\[
+R_{xx}(k) = E[x(n+k)x(n)]
+\]
+
+\subsection{Leistungsspektraldichte}
+Wenn Signal nicht stationär (Varianz ist nicht konstant über die Zeit) ist, existiert keine Leistungsspekatraldichte!
+\[
+S_{xx}(\omega) = \sum_{k=-\infty}^{\infty}R_{xx}(k)e^{-j\omega k}
+\]
+Dabei gilt, dass $\omega = \frac{2\pi f}{f_s}$ wo $f_s$ die Samplingfrequenz ist.
+
+Wenn das Signal zusätzlich gefiltert wird gilt:
+\[
+S_{yy}(\omega) = \left|H(\omega)\right|^2 S_{xx}(\omega)
+\]

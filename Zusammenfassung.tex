@@ -1,15 +1,24 @@
 % Document information
-\newcommand{\titleinfo}{Zusammenfassung Template}
-\newcommand{\authorinfo}{Name Nachname}
+\newcommand{\titleinfo}{Zusammenfassung DigSig}
+\newcommand{\authorinfo}{Sandro Pedrett}
 \newcommand{\version}{1.0}
-\newcommand{\versioninfo}{FS21}
+\newcommand{\versioninfo}{HS22}
 % Header
 \include{Template/Header}
+
+% externe verweise
+\newcommand{\script}[1]{\verweisextern{Signal Processing}{#1}}
 
 % Document
 \begin{document}
 
-\tableofcontents
-\input{Sections/First Section}
+\input{Sections/RandomNumbers}
+\input{Sections/SamplingReconstruction}
+\input{Sections/DiscreteTimeSystems}
+\input{Sections/zTransform}
+\input{Sections/TransferFunction}
+\input{Sections/Filter}
+\cleardoublepage
+\input{Sectinos/Idiotenseite}
 
 \end{document}

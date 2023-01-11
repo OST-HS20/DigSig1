@@ -1,0 +1,12 @@
+\section{Sampling and Reconstruction}
+\subsection{Alaising}
+Wenn das Signal ausserhalb des Nyquist Intervall liegt, wird das gesampelte Signal Alaising-Effekte aufweisen mit $f\pm n\cdot f_s$
+
+\textbf{Beispiel}: $\sin(2\pi \cdot 4)$ gesampelt wmit $f_s = 5Hz$, so wird $\left.\sin(2\pi (f - f_s)t)\right|_{f=4,f_s=5} = \sin(2\pi(-1)t)$
+\[
+f_{ia} = f_i + nf_s
+\]
+$n \in \mathbb{N}$ muss so gewählt werden, dass $f_ia$ im Nyqust Intervall von $-\frac{f_s}{2}..\frac{f_s}{2}$ liegt. Wenn die Frequenz $f$ innerhalb vom Nyquist Intervall liegt, entsteht keine Alaising.
+
+\subsection{Oversampling}
+Die Idee von Oversampling ist, durch schnelleres Abstasten des Signals, weniger Bits für den Quanitsierer spendieren zu müssen aber dennoch die selbe Quantisierungsqualität beizubehalten. Mit der ursprüngliche \textit{langsamen} Abtastrate $f_s$ und die neue schnelle $\hat{f}_s$ kann die Oversamplingrate $L$ durch $\frac{\hat{f}_s}{f_s}$ berechnet werden. Der Bitgewinn berechnet sich aus $\Delta B = 0.5 \log_2(L)$, zb wird 1 Bit pro 4-fach schnellere Abtastrate gewonnen. 
